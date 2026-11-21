@@ -1,25 +1,23 @@
-# Класс это структура данных, котороя служит для описание объектов
+# public
+# private -> __
+# protect -> _
+
+
 class Person:
-    name: str = "Asan"  # Свойства -> Атрибуты
-    age: int = 23  # Свойства -> Атрибуты
+    def __init__(self):
+        self.name = "Asan"#  public
+        self.__password = "12345" # private
+        self._year = 2000 #protect
 
-    def sleep(self):  # Поведение -> Метод
-        print(f"{self.name} Спит")
+    def get_password(self):
+        return self.__password
 
-    def run(self):
-        print(f"{self.name} running")
+    def set_password(self, password):
+            self.__password = password
 
-
-person_1 = Person()  # first object
-print(person_1.name)
-print(person_1.age)
-person_1.sleep()
-person_1.run()
-
-person_2 = Person()
-person_2.name = "Uson"
-person_2.age = 24
-print(person_2.name)
-print(person_2.age)
-person_2.sleep()
-person_2.run()
+obj = Person()
+print(obj.name)
+print(obj._year)
+print(obj.get_password())
+obj.set_password("123")
+print(obj.get_password())
